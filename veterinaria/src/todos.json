@@ -1,0 +1,18 @@
+{
+    "todos" : [
+        {
+            "name" : "Idan",
+            "sex" : "Macho",
+            "age" : 13,
+            "type" : "Ave",
+            "service" : "Valoración"
+        },
+        {
+            "name" : "Orus",
+            "sex" : "Macho",
+            "age" : 2,
+            "type" : "perro",
+            "service" : "Urgencias"
+        }
+    ]
+}
