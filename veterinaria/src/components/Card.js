@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { todos } from '../todos.json';
-import Form from './Form'
-import './../css/cards.css'
-
+import Form from './Form';
+import './../css/cards.css';
+var cont = 1;
 class Cards extends Component{
     constructor(){
         super();
+        if(cont == 1){
+            for(var i = 0; i < localStorage.length; i++){
+                let keyJSON = localStorage.key(i);
+                let dateJSON = JSON.parse(localStorage.getItem(keyJSON));
+                todos.push(dateJSON);
+            }
+        }
+        cont = 0;
         this.state = {
             todos
         };
@@ -15,15 +23,9 @@ class Cards extends Component{
         this.setState({
             todos: [...this.state.todos, todo]
         })
-    }
-    handleRemoveTodo(index){
-        if(window.confirm("¿Estas seguro?")){
-            this.setState({
-                todos : this.state.todos.filter((e,i) =>{
-                    return i != index
-                })
-            })
-        }
+        let key = localStorage.length+1;
+        let item = JSON.stringify(todo);
+        localStorage.setItem(key,item);
     }
     render(){
         const todos = this.state.todos.map((todo, i) =>{
@@ -32,21 +34,13 @@ class Cards extends Component{
                     <div className="card mt-4">
                         <header className="card-header">
                             <h1 className="card-title">{todo.name}</h1>
-                            <span className="badge badge-dark">{todo.service}</span>
+                            <span className="badge badge-danger">{todo.service}</span>
                         </header>
                         <main className="card-body">
                             <p>{todo.sex}</p>
-                            <p>{todo.age}</p>
+                            <p>{todo.age} años</p>
                             <p>{todo.type}</p>
                         </main>
-                        <footer className="card-footer">
-                            <button
-                                className="btn btn-danger"
-                                onClick={this.handleRemoveTodo.bind(this,i)}
-                            >
-                                Borrar
-                            </button>
-                        </footer>
                     </div>
                 </div>
             )

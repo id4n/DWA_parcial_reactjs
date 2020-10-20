@@ -1,3 +1,6 @@
 .link:hover{
     text-decoration: none;
 }
+.link{
+    font-family: 'Permanent Marker', cursive;
+}

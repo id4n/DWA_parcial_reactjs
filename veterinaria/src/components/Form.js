@@ -86,7 +86,7 @@ class Form extends Component {
                     <option value="">Tipo de animal</option>
                       <option>Perro</option>
                       <option>Gato</option>
-                      <option>Hámsters</option>
+                      <option>Hámster</option>
                       <option>Ave</option>
                     </select>
                   </div>

@@ -8,7 +8,7 @@ import Cards from './components/Card'
 function App(){
   return (
     <div className="App">
-      <Navbar title="Lista de Mascotas"/>
+      <Navbar title="LISTA DE MASCOTAS"/>
       <Cards />
     </div>
   );
